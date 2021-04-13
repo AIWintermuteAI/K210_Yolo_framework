@@ -193,7 +193,7 @@ def main(train_set: str, max_iters: int, in_hw: tuple, out_hw: tuple,
         scale[:] = np.min(scale)
         # NOTE translation is [w offset,h offset]
         translation = ((in_wh - img_wh * scale) / 2).astype(int)
-
+        #print(X[i])
         """ calculate the box transform matrix """
         X[i, 1][:, 1:3] = (X[i, 1][:, 1:3] * img_wh * scale + translation) / in_wh
         X[i, 1][:, 3:5] = (X[i, 1][:, 3:5] * img_wh * scale) / in_wh
